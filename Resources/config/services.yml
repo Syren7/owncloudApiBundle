@@ -1,14 +1,14 @@
 # Learn more about services, parameters and containers at
 # http://symfony.com/doc/current/book/service_container.html
 parameters:
-    ejt.owncloud.api.filesystem.class: ejt\FileBundle\Service\OwncloudFilesystem
-    ejt.owncloud.api.user.class: ejt\FileBundle\Service\OwncloudUser
+    syren7_owncloud.filesystem.class: ejt\FileBundle\Service\OwncloudFilesystem
+    syren7_owncloud.user.class: ejt\FileBundle\Service\OwncloudUser
 
 services:
-    ejt.owncloud.api.filesystem:
-        class: "%ejt.owncloud.api.filesystem.class%"
+    syren7_owncloud.filesystem:
+        class: "%syren7_owncloud.filesystem.class%"
         arguments: [%owncloud_host%, %owncloud_user%, %owncloud_pass%, %owncloud_folder%]
 
-    ejt.owncloud.api.user:
-        class: "%ejt.owncloud.api.user.class%"
+    syren7_owncloud.user:
+        class: "%syren7_owncloud.user.class%"
         arguments: [%owncloud_host%, %owncloud_user%, %owncloud_pass%]
