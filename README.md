@@ -81,7 +81,7 @@ You have now two services for contacting an owncloud server. *syren7_owncloud.fi
 
 # Examples
 
-This chaptes is currently missing. For the moment please read the documentation within the two service files `Service/OwncloudFilesystem.php` and `Service/OwncloudUser.php`!
+This chaptes is currently missing. For the moment please read the documentation within the two service files [Service/OwncloudFilesystem.php](Service/OwncloudFilesystem.php) and [Service/OwncloudUser.php](Service/OwncloudUser.php)!
 
 # Development
 
@@ -89,5 +89,5 @@ This bundle is still under development and if you would like to participate, let
 
 # Donations
 
-This is a completely free project and you can use it wherever you want. If you like this bundle and would like to donate some coffee feel free to do that on [PayPal](https://paypal.me/tuemmlerkon)
+This is a completely free project and you can use it wherever you want. If you like this bundle and would like to donate some "coffee" feel free to do that on [PayPal](https://paypal.me/tuemmlerkon)
 
