@@ -57,7 +57,7 @@ It's recommend to add these settings with placeholders in your `app/config/confi
 syren7_owncloud:
     host: '%owncloud_host%'
     user: '%owncloud_user%'
-    pass: '%owncloud_password%'
+    pass: '%owncloud_pass%'
     folder: '%owncloud_folder%'
 
 ```
@@ -67,7 +67,7 @@ syren7_owncloud:
 
     owncloud_host: 'UrlToYouOwncloudServerWithTrailingSlash' #e.g. https://cloud.yourhost.com/ or https://yourhost.com/owncloud/
     owncloud_user: 'YourOwncloudUsername'
-    owncloud_password: 'YourOwncloudPassword'
+    owncloud_pass: 'YourOwncloudPassword'
     owncloud_folder: 'RootFolderForStoringFilesWithTrailingSlash' # You can add here some folder where you want to store your files. Leave empty if you want to user the users root directory
 
 ```
