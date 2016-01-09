@@ -27,7 +27,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Syren7\\OwncloudApiBundle\\": "src/"
+            "Syren7\\OwncloudApiBundle\\": ""
         }
     }
 }
