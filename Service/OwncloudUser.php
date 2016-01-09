@@ -24,7 +24,11 @@ class OwncloudUser {
 	const TYPE_GROUP_DELETE				= '/groups/{groupname}';
 	const TYPE_GROUP_MEMBERS			= '/groups/{groupname}';
 	const TYPE_GROUP_SUBADMINS			= '/groups/{groupname}/subadmins';
-
+	//Fields for user update
+	const FIELD_DISPLAY					= 'display';
+	const FIELD_QUOTA					= 'quota';
+	const FIELD_PASSWORD				= 'password';
+	const FIELD_EMAIL					= 'email';
 	/**
 	 * @var ocs $ocs
 	 */
@@ -74,6 +78,50 @@ class OwncloudUser {
 			array('key' => $key, 'value' => $value),
 			ocs::HTTP_PUT
 		)->getStatusCode() == 100;
+	}
+
+	/**
+	 * updateUser() helper method for updateing the password of an user
+	 * @param $username
+	 * @param $password
+	 *
+	 * @return bool
+	 */
+	public function updateUserPassword($username, $password) {
+		return $this->updateUser($username, self::FIELD_PASSWORD, $password);
+	}
+
+	/**
+	 * updateUser() helper method for updateing the quota of an user
+	 * @param $username
+	 * @param $quota
+	 *
+	 * @return bool
+	 */
+	public function updateUserQuota($username, $quota) {
+		return $this->updateUser($username, self::FIELD_QUOTA, $quota);
+	}
+
+	/**
+	 * updateUser() helper method for updateing the email address of an user
+	 * @param $username
+	 * @param $email
+	 *
+	 * @return bool
+	 */
+	public function updateUserEmail($username, $email) {
+		return $this->updateUser($username, self::FIELD_EMAIL, $email);
+	}
+
+	/**
+	 * updateUser() helper method for updateing the displayname of an user
+	 * @param $username
+	 * @param $displayName
+	 *
+	 * @return bool
+	 */
+	public function updateUserDisplayname($username, $displayName) {
+		return $this->updateUser($username, self::FIELD_DISPLAY, $displayName);
 	}
 
 	/**
