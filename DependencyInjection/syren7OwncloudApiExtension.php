@@ -26,4 +26,8 @@ class syren7OwncloudApiExtension extends Extension {
 		);
 		$loader->load('services.yml');
 	}
+
+	public function getAlias() {
+		return 'syren7_owncloud';
+	}
 }
