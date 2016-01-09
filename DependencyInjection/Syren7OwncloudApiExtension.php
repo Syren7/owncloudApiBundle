@@ -12,7 +12,7 @@ use Symfony\Component\DependencyInjection\Loader;
  *
  * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
  */
-class syren7OwncloudApiExtension extends Extension {
+class Syren7OwncloudApiExtension extends Extension {
 	/**
 	 * {@inheritdoc}
 	 */
