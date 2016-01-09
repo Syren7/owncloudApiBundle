@@ -25,6 +25,10 @@ class Syren7OwncloudApiExtension extends Extension {
 			new FileLocator(__DIR__ . '/../Resources/config')
 		);
 		$loader->load('services.yml');
+		//very important to do this next time!!
+		foreach($config as $key => $value){
+			$container->setParameter('syren7_owncloud.'.$key, $value);
+		}
 	}
 
 	public function getAlias() {
