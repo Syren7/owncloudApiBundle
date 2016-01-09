@@ -33,7 +33,6 @@ class Configuration implements ConfigurationInterface {
 				->end()
 				->scalarNode('folder')
 					->isRequired()
-					->cannotBeEmpty()
 				->end()
 			->end();
 
