@@ -3,6 +3,7 @@
 namespace Syren7\OwncloudApiBundle\Service;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 use Syren7\OwncloudApiBundle\Model\FsObject;
 use League\Flysystem\Filesystem;
 use League\Flysystem\WebDAV\WebDAVAdapter;
@@ -29,12 +30,14 @@ class OwncloudFilesystem {
 	/**
 	 * OwncloudApi constructor.
 	 *
-	 * @param string $ocHost Url to your OwnCloud
-	 * @param string $ocUser Your owncloud user
-	 * @param string $ocPass Your owncloud password
-	 * @param string $ocFolder If you want to use a specific starting folder. Use it here
+	 * @param ContainerInterface $containerInterface
 	 */
-	public function __construct($ocHost, $ocUser, $ocPass, $ocFolder) {
+	public function __construct(ContainerInterface $containerInterface) {
+		//reading parameters from config
+		$ocHost = $containerInterface->getParameter('syren7_owncloud.host');
+		$ocUser = $containerInterface->getParameter('syren7_owncloud.user');
+		$ocPass = $containerInterface->getParameter('syren7_owncloud.pass');
+		$ocFolder = $containerInterface->getParameter('syren7_owncloud.folder');
 		//Create settings array for curl connection
 		$settings = array(
 			//the webdav url ist created from your owncloud url + '/remote.php/webdav/' + your specific folder if wished

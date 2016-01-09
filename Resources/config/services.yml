@@ -7,8 +7,8 @@ parameters:
 services:
     syren7_owncloud.filesystem:
         class: "%syren7_owncloud.filesystem.class%"
-        arguments: [%syren7_owncloud.host%, %syren7_owncloud.user%, %syren7_owncloud.pass%, %syren7_owncloud.folder%]
+        arguments: [@service_container]
 
     syren7_owncloud.user:
         class: "%syren7_owncloud.user.class%"
-        arguments: [%syren7_owncloud.host%, %syren7_owncloud.user%, %syren7_owncloud.pass%]
+        arguments: [@service_container]
