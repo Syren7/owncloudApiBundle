@@ -40,7 +40,6 @@ class OwncloudUser {
 		$ocHost = $containerInterface->getParameter('syren7_owncloud.host');
 		$ocUser = $containerInterface->getParameter('syren7_owncloud.user');
 		$ocPass = $containerInterface->getParameter('syren7_owncloud.pass');
-		$ocFolder = $containerInterface->getParameter('syren7_owncloud.folder');
 
 		$this->ocs = new ocs($ocHost, $ocUser, $ocPass);
 	}
