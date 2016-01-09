@@ -1,8 +1,8 @@
 <?php
 
-namespace Syren7\owncloudApiBundle\Service;
+namespace Syren7\OwncloudApiBundle\Service;
 
-use ejt\FileBundle\lib\ocs;
+use Syren7\OwncloudApiBundle\lib\ocs;
 use Sabre\DAV\Exception;
 
 class OwncloudUser {

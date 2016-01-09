@@ -1,6 +1,6 @@
 <?php
 
-namespace Syren7\owncloudApiBundle\DependencyInjection;
+namespace Syren7\OwncloudApiBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;

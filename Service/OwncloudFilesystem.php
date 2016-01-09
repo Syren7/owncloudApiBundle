@@ -1,9 +1,9 @@
 <?php
 
-namespace Syren7\owncloudApiBundle\Service;
+namespace Syren7\OwncloudApiBundle\Service;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use ejt\FileBundle\Model\FsObject;
+use Syren7\OwncloudApiBundle\Model\FsObject;
 use League\Flysystem\Filesystem;
 use League\Flysystem\WebDAV\WebDAVAdapter;
 use Sabre\DAV\Client;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Syren7\owncloudApiBundle\DependencyInjection;
+namespace Syren7\OwncloudApiBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;

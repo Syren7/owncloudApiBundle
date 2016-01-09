@@ -1,6 +1,6 @@
 <?php
 
-namespace Syren7\owncloudApiBundle\Model;
+namespace Syren7\OwncloudApiBundle\Model;
 
 class FsObject {
 

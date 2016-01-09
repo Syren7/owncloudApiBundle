@@ -1,6 +1,6 @@
 <?php
 
-namespace Syren7\owncloudApiBundle\lib;
+namespace Syren7\OwncloudApiBundle\lib;
 
 use SimpleXMLElement;
 

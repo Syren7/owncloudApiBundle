@@ -1,6 +1,6 @@
 <?php
 
-namespace Syren7\owncloudApiBundle;
+namespace Syren7\OwncloudApiBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
