@@ -34,7 +34,7 @@ class AppKernel extends Kernel {
         $bundles = array(
             // ...
 
-            new Syren7\owncloudApiBundle\Syren7OwncloudApiBundle(),
+            new Syren7\OwncloudApiBundle\Syren7OwncloudApiBundle(),
         );
 
         // ...
