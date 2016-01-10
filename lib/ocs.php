@@ -130,8 +130,6 @@ class ocs {
 		$this->message		= (string) $simpleXMLElement->meta->message;
 		//map data information
 		$this->data			= $simpleXMLElement->data;
-
-		dump($this);
 	}
 
 	/**
