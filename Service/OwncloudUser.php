@@ -332,6 +332,17 @@ class OwncloudUser {
 	}
 
 	/**
+	 * Returns last request from OCS
+	 * Attention: This method returns always the last request
+	 * ToDo: Possibility to return more than one request
+	 *
+	 * @return ocs
+	 */
+	public function getLastRequest() {
+		return $this->ocs;
+	}
+
+	/**
 	 * Helper Method for creating suburls for request
 	 * @param string $type
 	 * @param string $name
