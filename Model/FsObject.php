@@ -117,6 +117,24 @@ class FsObject {
 		return $this;
 	}
 
+	/**
+	 * @return string
+	 */
+	public function getPath() {
+		return $this->path;
+	}
+
+	/**
+	 * @param string $path
+	 *
+	 * @return FsObject
+	 */
+	public function setPath($path) {
+		$this->path = $path;
+
+		return $this;
+	}
+
 	public function __toString() {
 		return $this->getFilename();
 	}
