@@ -79,9 +79,17 @@ You have now two services for contacting an owncloud server. *syren7_owncloud.fi
  $this->get('syren7_owncloud.user'); //managing users and groups
 ```
 
+# Debbuging
+
+For debugging purposes you could call the getLastRequest() Method from the service. It will return the response from your OwnCloud server. So you can see which type of error was thrown corresponding to the docs on OwnCloud Api.
+```php
+#Example of an response from server
+
+```
+
 # Examples
 
-This chaptes is currently missing. For the moment please read the documentation within the two service files [Service/OwncloudFilesystem.php](Service/OwncloudFilesystem.php) and [Service/OwncloudUser.php](Service/OwncloudUser.php)!
+This chapter is currently missing. For the moment please read the documentation within the two service files [Service/OwncloudFilesystem.php](Service/OwncloudFilesystem.php) and [Service/OwncloudUser.php](Service/OwncloudUser.php)!
 
 # Development
 
