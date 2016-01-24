@@ -116,5 +116,9 @@ class FsObject {
 
 		return $this;
 	}
+
+	public function __toString() {
+		return $this->getFilename();
+	}
 }
 
