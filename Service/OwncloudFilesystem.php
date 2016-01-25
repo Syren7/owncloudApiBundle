@@ -3,6 +3,7 @@
 namespace Syren7\OwncloudApiBundle\Service;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use League\Flysystem\File;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Syren7\OwncloudApiBundle\Model\FsObject;
 use League\Flysystem\Filesystem;
@@ -75,6 +76,21 @@ class OwncloudFilesystem {
 		catch(Exception $e) {
 			return false;
 		}
+	}
+
+	/**
+	 * Returns file handle from OC
+	 * @param $path
+	 *
+	 * @return bool|File
+	 */
+	public function getFile($path) {
+		$file = $this->fs->get($path);
+		if($file instanceof File) {
+			return $file;
+		}
+
+		return false;
 	}
 
 	/**
