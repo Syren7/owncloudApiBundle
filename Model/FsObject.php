@@ -135,6 +135,11 @@ class FsObject {
 		return $this;
 	}
 
+	public function getRelativePath() {
+		//remove possible double slashes, remove remote.php/webdav path
+		return str_replace('/remote.php/webdav','',str_replace('//','/', $this->path));
+	}
+
 	public function __toString() {
 		return $this->getFilename();
 	}
