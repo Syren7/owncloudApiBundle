@@ -138,16 +138,12 @@ class OwncloudFilesystem {
 	 * @return bool
 	 */
 	public function removeFile($path='') {
-		if(file_exists($path)) {
-			try {
-				return $this->fs->delete($path);
-			}
-			catch(FileNotFoundException $e){
-				return false;
-			}
+		try {
+			return $this->fs->delete($path);
 		}
-
-		return false;
+		catch(FileNotFoundException $e){
+			return false;
+		}
 	}
 	/**
 	 * @param string 	$filePath 		Path to file on cloud
