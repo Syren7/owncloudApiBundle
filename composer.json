@@ -23,8 +23,7 @@
         "php": ">=5.5.9",
         "symfony/symfony":"~2.7|~3.0",
         "sabre/dav": "2.0.*",
-        "league/flysystem-webdav": "^1.0",
-        "symfony/var-dumper": "^3.0"
+        "league/flysystem-webdav": "^1.0"
     },
     "autoload": {
         "psr-4": {
