@@ -2,7 +2,6 @@
 
 namespace Syren7\OwncloudApiBundle\Service;
 
-use Symfony\Component\DependencyInjection\ContainerInterface;
 use Syren7\OwncloudApiBundle\lib\ocs;
 use Sabre\DAV\Exception;
 
@@ -37,14 +36,11 @@ class OwncloudUser {
 	/**
 	 * OwncloudApiUser constructor.
 	 *
-	 * @param ContainerInterface $containerInterface
+	 * @param string $ocHost
+	 * @param string $ocUser
+	 * @param string $ocPass
 	 */
-	public function __construct(ContainerInterface $containerInterface) {
-		//reading parameters from config
-		$ocHost = $containerInterface->getParameter('syren7_owncloud.host');
-		$ocUser = $containerInterface->getParameter('syren7_owncloud.user');
-		$ocPass = $containerInterface->getParameter('syren7_owncloud.pass');
-
+	public function __construct($ocHost, $ocUser, $ocPass) {
 		$this->ocs = new ocs($ocHost, $ocUser, $ocPass);
 	}
 

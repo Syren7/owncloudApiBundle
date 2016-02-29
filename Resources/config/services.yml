@@ -3,12 +3,17 @@
 parameters:
     syren7_owncloud.filesystem.class: Syren7\OwncloudApiBundle\Service\OwncloudFilesystem
     syren7_owncloud.user.class: Syren7\OwncloudApiBundle\Service\OwncloudUser
+    syren7_owncloud.calendar.class: Syren7\OwncloudApiBundle\Service\OwncloudCalendar
 
 services:
     syren7_owncloud.filesystem:
         class: "%syren7_owncloud.filesystem.class%"
-        arguments: ["@service_container"]
+        arguments: ["syren7_owncloud.host", "syren7_owncloud.user", "syren7_owncloud.pass", "syren7_owncloud.folder"]
 
     syren7_owncloud.user:
         class: "%syren7_owncloud.user.class%"
-        arguments: ["@service_container"]
+        arguments: ["syren7_owncloud.host", "syren7_owncloud.user", "syren7_owncloud.pass"]
+
+    syren7_owncloud.calendar:
+            class: "%syren7_owncloud.calendar.class%"
+            arguments: ["syren7_owncloud.host", "syren7_owncloud.user", "syren7_owncloud.pass"]
