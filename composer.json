@@ -2,7 +2,7 @@
     "name": "syren7/owncloud-api-bundle",
     "type": "symfony-bundle",
     "description": "This Bundle allows you to manage owncloud users throug provisioning api and managing files through sabre dav",
-    "version": "dev-master",
+    "version": "1.3.0",
     "keywords": [
         "owncloud",
         "api",
