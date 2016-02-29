@@ -93,20 +93,12 @@ class CalDavClient extends Client{
 		return $entries;
 	}
 
-	public function createEvent(Calendar $calendar) {
+	public function createEvent(Calendar $calendar, $text) {
 		$url = $calendar->getUri().substr(bin2hex(random_bytes(32)), 0, 32).'.ics';
-		echo $url;
+
 		return $this->request('PUT',
 			  $url,
-			  'BEGIN:VCALENDAR
-                    VERSION:2.0
-                    CALSCALE:GREGORIAN
-                    BEGIN:VEVENT
-                    UID:132456762153245
-                    SUMMARY:Do the dishes
-                    DUE:20160202T115600Z
-                    END:VEVENT
-                    END:VCALENDAR',
+			  $text,
 			  array(
 				  'Content-Type:' => 'text/calendar; charset=utf-8',
 			  )

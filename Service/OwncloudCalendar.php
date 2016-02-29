@@ -35,8 +35,8 @@ class OwncloudCalendar {
 		return $this->cal->getEvents($calendar);
 	}
 
-	public function createEvent(Calendar $cal, $object) {
-		//return $this->cal->createEvent($cal, $object);
+	public function createEvent(Calendar $cal, $text) {
+		return $this->cal->createEvent($cal, $text);
 	}
 
 	public function getCalendars() {
