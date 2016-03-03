@@ -60,6 +60,11 @@ syren7_owncloud:
 
 ```
 
+Take care about the `owncloud_folder` parameter. If you leave it empty, the bundle always uses the home (or root) directory of the user given in `owncloud_user`.  
+If you would like to store the data in a subfolder of the user, please set it in `owncloud_folder` **relative** to the users home directory!  
+e.g. you have folder named *files of bob* in bobs home directory and you would like to store all files created by the bundle inside this directory, set `owncloud_folder` to `owncloud_folder: "files of bob/"`
+As mentioned in `Basic example` if you scan the directory with *getDirectoryContents()* with no parameters, the bundle will now scan *files of bob/* instead of bob's home directory.
+
 ```yaml
     // app/config/parameters.yml
 
@@ -77,6 +82,7 @@ You have now two services for contacting an owncloud server. *syren7_owncloud.fi
  // in some controller file you can do the following
  $this->get('syren7_owncloud.filesystem'); //using filesystem tools on owncloud
  $this->get('syren7_owncloud.user'); //managing users and groups
+ $this->get('syren7_owncloud.calendar'); //reading calendars and events
 ```
 
 # Debbuging
@@ -89,7 +95,32 @@ For debugging purposes you could call the getLastRequest() Method from the servi
 
 # Examples
 
-This chapter is currently missing. For the moment please read the documentation within the two service files [Service/OwncloudFilesystem.php](Service/OwncloudFilesystem.php) and [Service/OwncloudUser.php](Service/OwncloudUser.php)!
+## Basic example
+
+If you want to work with this api without symfony you can do this simply with the following example:
+```php
+//Basic example for the filesystem api  
+  
+//edit the following line, if you have your vendors not installed to vendors/ Folder  
+require_once 'vendor/autoload.php';  
+//create a new object with your owncloud credentials  
+$fs = new \Syren7\OwncloudApiBundle\Service\OwncloudFilesystem('YourHostNameHere', 'YourOcUserName', 'YourOcPassword', 'LeaveBlankIfYouWantToWriteIntoUsersRootDirectory');  
+  
+//do your operations as you would do in symfony  
+//List all files and directories (optional give a subdirectory as parameter)  
+$fs->getDirectoryContents('Optional:YourPathToADirectory');  
+//returns a file handle from Oc. Filname as parameter  
+$fs->getFile('Path/To/File.txt');  
+//create a directory  
+$fs->createDirectory('Path/To/New/Directory/On/Your/Oc');  
+//remove a directory  
+$fs->removeDirectory('Path/To/Remove/Directory/On/Your/Oc');  
+//uploads a file to your oc  
+$fs->createFile('Local/Path/To/File.txt', 'Optional: Remote/Path/To/File');  
+//removes a file from your oc  
+$fs->removeFile($path='');  
+  
+```
 
 # Development
 
