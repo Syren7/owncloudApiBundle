@@ -36,6 +36,15 @@ class OwncloudFilesystem {
 	 * @param string $ocFolder
 	 */
 	public function __construct($ocHost, $ocUser, $ocPass, $ocFolder) {
+		//check wherever there is a leading or trailing slash on $ocFolder
+		if($ocFolder !== '') {
+			//if there is a leading / (start at 0 with 1 length is a /)
+			if(substr($ocFolder, 0, 1) === '/') $ocFolder = substr($ocFolder, 1);
+			//if there is a trailing slash
+			if($ocFolder[strlen($ocFolder)-1] == '/') $ocFolder = substr($ocFolder, 0, strlen($ocFolder)-1);
+		}
+		//check host for trailing slash
+		if($ocHost[strlen($ocHost)-1] === '/') $ocHost = substr($ocHost, 0, strlen($ocHost)-1);
 		//Create settings array for curl connection
 		$settings = array(
 			//the webdav url ist created from your owncloud url + '/remote.php/webdav/' + your specific folder if wished

@@ -63,10 +63,10 @@ syren7_owncloud:
 ```yaml
     // app/config/parameters.yml
 
-    owncloud_host: 'UrlToYouOwncloudServerWithTrailingSlash' #e.g. https://cloud.yourhost.com/ or https://yourhost.com/owncloud/
+    owncloud_host: 'UrlToYouOwncloudServer' #e.g. https://cloud.yourhost.com/ or https://yourhost.com/owncloud/
     owncloud_user: 'YourOwncloudUsername' #if you want to access user specific functions (like adding and removeing), make sure your owncloud user has enough rights
     owncloud_pass: 'YourOwncloudPassword'
-    owncloud_folder: 'RootFolderForStoringFilesWithTrailingSlash' # You can add here some folder where you want to store your files. Leave empty if you want to user the users root directory
+    owncloud_folder: 'RootFolderForStoringFiles' # You can add here some folder where you want to store your files. Leave empty if you want to user the users root directory
 
 ```
 
