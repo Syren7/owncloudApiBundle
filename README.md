@@ -74,7 +74,7 @@ Take care about the `owncloud_folder` parameter. If you leave it empty, the bund
 If you would like to store the data in a subfolder of the user, please set it in `owncloud_folder` **relative** to the users home directory!  
 e.g. you have folder named *files of bob* in bobs home directory and you would like to store all files created by the bundle inside this directory, set `owncloud_folder` to `owncloud_folder: "files of bob/"`.  
   
-As mentioned in the example `Basic example`:  
+As mentioned in the example **Filesystem example**:  
 If you scan the directory with *getDirectoryContents()* with no parameters, the bundle will now scan *files of bob/* instead of bob's home directory.
 
 
@@ -98,7 +98,7 @@ For debugging purposes you could call the getLastRequest() Method from the servi
 
 # Examples
 
-## Basic example
+## Filesystem example
 
 If you want to work with this api without symfony you can do this simply with the following example:
 ```php
