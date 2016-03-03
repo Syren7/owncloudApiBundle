@@ -111,15 +111,22 @@ $fs = new \Syren7\OwncloudApiBundle\Service\OwncloudFilesystem('YourHostNameHere
   
 //do your operations as you would do in symfony  
 //List all files and directories (optional give a subdirectory as parameter)  
-$fs->getDirectoryContents('Optional:YourPathToADirectory');  
+$fs->getDirectoryContents('Optional:YourPathToADirectory');
+  
 //returns a file handle from Oc. Filname as parameter  
-$fs->getFile('Path/To/File.txt');  
+$file = $fs->getFile('Path/To/File.txt');
+//write file to local filesystem
+file_put_contents('Path/To/New/Local/File.txt', $file->read());
+
 //create a directory  
-$fs->createDirectory('Path/To/New/Directory/On/Your/Oc');  
+$fs->createDirectory('Path/To/New/Directory/On/Your/Oc');
+  
 //remove a directory  
-$fs->removeDirectory('Path/To/Remove/Directory/On/Your/Oc');  
+$fs->removeDirectory('Path/To/Remove/Directory/On/Your/Oc');
+  
 //uploads a file to your oc  
-$fs->createFile('Local/Path/To/File.txt', 'Optional: Remote/Path/To/File');  
+$fs->createFile('Local/Path/To/File.txt', 'Optional: Remote/Path/To/File');
+  
 //removes a file from your oc  
 $fs->removeFile($path='');  
   
