@@ -104,7 +104,7 @@ If you want to work with this api without symfony you can do this simply with th
 ```php
 //Basic example for the filesystem api  
   
-//edit the following line, if you have your vendors not installed to vendors/ Folder  
+//edit the following line, if you have your vendors not installed to vendor/ Folder  
 require_once 'vendor/autoload.php';  
 //create a new object with your owncloud credentials  
 $fs = new \Syren7\OwncloudApiBundle\Service\OwncloudFilesystem('YourHostNameHere', 'YourOcUserName', 'YourOcPassword', 'LeaveBlankIfYouWantToWriteIntoUsersRootDirectory');  
