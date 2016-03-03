@@ -151,6 +151,30 @@ class OwncloudFilesystem {
 			return false;
 		}
 	}
+
+	/**
+	 * Renames a file on cloud
+	 *
+	 * @param File $file
+	 * @param string $newFileName
+	 *
+	 * @return bool
+	 */
+	public function renameFile(File $file, $newFileName) {
+		return $file->rename($newFileName);
+	}
+
+	/**
+	 * copies a file on cloud
+	 *
+	 * @param File $file file to be copied
+	 * @param string $newFileName new name of copied file
+	 *
+	 * @return bool false on error true on success
+	 */
+	public function copyFile(File $file, $newFileName) {
+		return $file->copy($newFileName)!==false;
+	}
 	/**
 	 * @param string 	$filePath 		Path to file on cloud
 	 * @param array 	$xmlResponse	The XML DAV response from dav-server

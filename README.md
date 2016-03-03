@@ -129,6 +129,12 @@ $fs->createFile('Local/Path/To/File.txt', 'Optional: Remote/Path/To/File');
   
 //removes a file from your oc  
 $fs->removeFile($path='');  
+
+//rename a file on your cloud ($file is the file returned by $fs->getFile())
+$fs->renameFile(File $file, 'newFileName.txt');
+
+//copy a file on your cloud ($file is the file returned by $fs->getFile())
+$fs->copyFile(File $file, 'newFileName.txt');
   
 ```
 
