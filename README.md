@@ -60,10 +60,12 @@ syren7_owncloud:
 
 ```
 
-Take care about the `owncloud_folder` parameter. If you leave it empty, the bundle always uses the home (or root) directory of the user given in `owncloud_user`.  
+Take care about the `owncloud_folder` parameter. If you leave it empty, the bundle always uses the home (or root) directory of the user given in `owncloud_user`.
 If you would like to store the data in a subfolder of the user, please set it in `owncloud_folder` **relative** to the users home directory!  
-e.g. you have folder named *files of bob* in bobs home directory and you would like to store all files created by the bundle inside this directory, set `owncloud_folder` to `owncloud_folder: "files of bob/"`
-As mentioned in `Basic example` if you scan the directory with *getDirectoryContents()* with no parameters, the bundle will now scan *files of bob/* instead of bob's home directory.
+e.g. you have folder named *files of bob* in bobs home directory and you would like to store all files created by the bundle inside this directory, set `owncloud_folder` to `owncloud_folder: "files of bob/"`.  
+  
+As mentioned in the example `Basic example`:  
+If you scan the directory with *getDirectoryContents()* with no parameters, the bundle will now scan *files of bob/* instead of bob's home directory.
 
 ```yaml
     // app/config/parameters.yml
