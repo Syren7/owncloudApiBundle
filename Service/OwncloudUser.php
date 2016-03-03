@@ -48,6 +48,8 @@ class OwncloudUser {
 	 * @param string $username New user to be created
 	 * @param string $password Password for new user
 	 *
+	 * NOTE: OwnCloud doesn't allow usernames with spaces!!
+	 *
 	 * @return bool
 	 */
 	public function createUser($username, $password) {
