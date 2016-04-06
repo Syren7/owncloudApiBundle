@@ -44,29 +44,17 @@ class AppKernel extends Kernel {
 
 ## Step 3: Configure the Bundle
 
-You will need to configure three parameters for using this bundle.
-It's recommend to add these settings with placeholders in your `app/config/config.yml` and add the credentials in `app/config/your parameters.yml`.
+You will need now to configure your parameters for using this bundle.
 
 **IMPORTANT: Make sure that you're using https for encryption because passwords will be transmitted in plaintext**
 
 ```yaml
-// app/config/config.yml
-
-syren7_owncloud:
-    host: '%owncloud_host%'
-    user: '%owncloud_user%'
-    pass: '%owncloud_pass%'
-    folder: '%owncloud_folder%'
-
-```
-
-```yaml
     // app/config/parameters.yml
-
-    owncloud_host: 'UrlToYouOwncloudServer' #e.g. https://cloud.yourhost.com/ or https://yourhost.com/owncloud/
-    owncloud_user: 'YourOwncloudUsername' #if you want to access user specific functions (like adding and removeing), make sure your owncloud user has enough rights
-    owncloud_pass: 'YourOwncloudPassword'
-    owncloud_folder: 'RootFolderForStoringFiles' # You can add here some folder where you want to store your files. Leave empty if you want to user the users root directory
+    syren7_owncloud:
+        host: 'UrlToYouOwncloudServer' #e.g. https://cloud.yourhost.com/ or https://yourhost.com/owncloud/
+        user: 'YourOwncloudUsername' #if you want to access user specific functions (like adding and removeing), make sure your owncloud user has enough rights
+        pass: 'YourOwncloudPassword'
+        folder: 'RootFolderForStoringFiles' # You can add here some folder where you want to store your files. Leave empty if you want to user the users root directory
 
 ```
 

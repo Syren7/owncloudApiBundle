@@ -15,5 +15,5 @@ services:
         arguments: ["%syren7_owncloud.host%", "%syren7_owncloud.user%", "%syren7_owncloud.pass%"]
 
     syren7_owncloud.calendar:
-            class: "%syren7_owncloud.calendar.class%"
-            arguments: ["%syren7_owncloud.host%", "%syren7_owncloud.user%", "%syren7_owncloud.pass%"]
+        class: "%syren7_owncloud.calendar.class%"
+        arguments: ["%syren7_owncloud.host%", "%syren7_owncloud.user%", "%syren7_owncloud.pass%"]
