@@ -79,7 +79,7 @@ If you scan the directory with *getDirectoryContents()* with no parameters, the 
 
 ## Step 4: Using the Bundle
 
-You have now two services for contacting an owncloud server. *syren7_owncloud.filesystem* for accessing the webDav service and *syren7_owncloud.user* for managing users, groups and subadmins on your owncloud instance.
+You have now three services for contacting an owncloud server. *syren7_owncloud.filesystem* for accessing the webDav service and *syren7_owncloud.user* for managing users, groups and subadmins on your owncloud instance.
 ```php
  // in some controller file you can do the following
  $this->get('syren7_owncloud.filesystem'); //using filesystem tools on owncloud
