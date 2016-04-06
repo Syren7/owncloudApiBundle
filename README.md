@@ -98,6 +98,8 @@ For debugging purposes you could call the getLastRequest() Method from the servi
 
 # Examples
 
+You can see other examples and further documetation within the [docs/ folder](docs/)
+
 ## Filesystem example
 
 If you want to work with this api without symfony you can do this simply with the following example:
