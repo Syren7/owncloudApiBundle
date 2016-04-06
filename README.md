@@ -98,7 +98,7 @@ For debugging purposes you could call the getLastRequest() Method from the servi
 
 # Examples
 
-You can see other examples and further documetation within the [docs/ folder](docs/)
+You can see other examples and further documentation within the [docs/ folder](docs/)
 
 ## Filesystem example
 
