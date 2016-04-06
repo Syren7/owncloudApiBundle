@@ -1,6 +1,6 @@
 # owncloudApiBundle
 
-This Bundle allows you to manage owncloud users throug provisioning api and managing files through sabre dav
+This ownCloud API Bundle allows you to access user, files and calendars of your ownCloud through the provisioning API and SabreDAV.
 
 # Installation
 
