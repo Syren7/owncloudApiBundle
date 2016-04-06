@@ -49,12 +49,23 @@ You will need now to configure your parameters for using this bundle.
 **IMPORTANT: Make sure that you're using https for encryption because passwords will be transmitted in plaintext**
 
 ```yaml
-    // app/config/parameters.yml
+    // app/config/config.yml
+    // YOU SHOULD NOT SET SENSITIVE DATA HERE!
     syren7_owncloud:
-        host: 'UrlToYouOwncloudServer' #e.g. https://cloud.yourhost.com/ or https://yourhost.com/owncloud/
-        user: 'YourOwncloudUsername' #if you want to access user specific functions (like adding and removeing), make sure your owncloud user has enough rights
-        pass: 'YourOwncloudPassword'
-        folder: 'RootFolderForStoringFiles' # You can add here some folder where you want to store your files. Leave empty if you want to user the users root directory
+        host: '%owncloud_host%'
+        user: '%owncloud_user%'
+        pass: '%owncloud_pass%'
+        folder: '%owncloud_folder%' #NOTE: this setting is optional
+
+```
+
+
+```yaml
+    // app/config/parameters.yml
+    owncloud_host: 'UrlToYouOwncloudServer' #e.g. https://cloud.yourhost.com/ or https://yourhost.com/owncloud/
+    owncloud_user: 'YourOwncloudUsername' #if you want to access user specific functions (like adding and removeing), make sure your owncloud user has enough rights
+    owncloud_pass: 'YourOwncloudPassword'
+    owncloud_folder: 'RootFolderForStoringFiles' # You can add here some folder where you want to store your files. Leave empty if you want to user the users root directory
 
 ```
 
