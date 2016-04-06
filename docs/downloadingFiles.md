@@ -12,7 +12,7 @@ public function downloadAction() {
     //get the filesystem service
     $fs = $this->get('syren7_owncloud.filesystem');
     //read file information from cloud
-    $file = $fs->getFile('Verwaltung/Test/test.pdf');
+    $file = $fs->getFile('Some/Path/file.pdf');
     //create response and pass file content as data
     $response = new Response($file->read());
     /**
