@@ -93,7 +93,7 @@ class CalendarEvent {
 	/**
 	 * @param $fieldName
 	 *
-	 * @return string
+	 * @return string|\DateTime
 	 * @throws CalendarEventException
 	 */
 	public function getField($fieldName) {
