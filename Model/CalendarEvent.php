@@ -61,6 +61,13 @@ class CalendarEvent {
 	/**
 	 * @return string
 	 */
+	public function getETag() {
+		return $this->eTag;
+	}
+	
+	/**
+	 * @return string
+	 */
 	public function getVersion() {
 		return $this->version;
 	}
