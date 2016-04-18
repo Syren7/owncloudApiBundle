@@ -134,4 +134,56 @@ class CalendarEvent {
 		//return the array
 		return $return;
 	}
+	#########################################
+	########## Custom field getter ##########
+	#########################################
+	/**
+	 * @return string
+	 * @throws CalendarEventException
+	 */
+	public function getLocation() {
+		return $this->getField('LOCATION');
+	}
+	/**
+	 * @return string
+	 * @throws CalendarEventException
+	 */
+	public function getSummary() {
+		return $this->getField('SUMMARY');
+	}
+	/**
+	 * @return string
+	 * @throws CalendarEventException
+	 */
+	public function getDescription() {
+		return $this->getField('DESCRIPTION');
+	}
+	/**
+	 * @return \DateTime
+	 * @throws CalendarEventException
+	 */
+	public function getStart() {
+		return $this->getField('DTSTART');
+	}
+	/**
+	 * @return \DateTime
+	 * @throws CalendarEventException
+	 */
+	public function getEnd() {
+		return $this->getField('DTEND');
+	}
+	/**
+	 * @return string
+	 * @throws CalendarEventException
+	 */
+	public function getUID() {
+		return $this->getField('UID');
+	}
+	/**
+	 * @return bool
+	 * @throws CalendarEventException
+	 */
+	public function isAllDay() {
+		return $this->getStart()->format('H:i:s') == '00:00:00' && $this->getEnd()->format('H:i:s') == '00:00:00';
+	}
 }
