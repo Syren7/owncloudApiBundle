@@ -71,7 +71,7 @@ class CalDavClient extends Client{
 	/**
 	 * Returns an ArrayCollection object with VObject elements as childs if there are some entries
 	 *
-	 * @param Calendar $calendar
+	 * @param Calendar  $calendar
 	 *
 	 * @return ArrayCollection
 	 */
@@ -82,8 +82,18 @@ class CalDavClient extends Client{
 				self::CALDAV_PROP_CALENDARETAG,
 				self::CALDAV_PROP_CALENDARDATA,
 			), 1) as $uri => $entry) {
-				/**@var VObject\Component\VCalendar $calendar */
-				$entries->add(new CalendarEvent($entry[self::CALDAV_PROP_CALENDARDATA], $entry[self::CALDAV_PROP_CALENDARETAG]));
+				//Read VCalendar Object from calData
+				/**
+				 * @var VObject\Component\VCalendar $cal
+				 */
+				$cal = VObject\Reader::read($entry[self::CALDAV_PROP_CALENDARDATA]);
+				//expand event if there are multiple events
+				$cal->expand((new \DateTime())->modify('-2 years'),(new \DateTime())->modify('+2 years'));
+				//go through all events
+				foreach($cal->VEVENT as $event) {
+					/**@var VObject\Component\VEvent $event*/
+					$entries->add(new CalendarEvent($event, $entry[self::CALDAV_PROP_CALENDARETAG]));
+				}
 			};
 		}
 		catch(Exception $e) {
