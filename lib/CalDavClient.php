@@ -7,7 +7,10 @@ use Sabre\DAV\Client;
 use Sabre\DAV\Exception;
 use Sabre\DAV\Property;
 use Sabre\DAV\XMLUtil;
+use Sabre\HTTP\ClientException;
 use Sabre\HTTP\Request;
+use Sabre\HTTP\RequestInterface;
+use Sabre\HTTP\ResponseInterface;
 use Sabre\VObject;
 use Syren7\OwncloudApiBundle\Model\Calendar;
 use Syren7\OwncloudApiBundle\Model\CalendarEvent;
@@ -34,13 +37,57 @@ class CalDavClient extends Client{
 	 */
 	private $lastException = null;
 	/**
+	 * Save username for later use from settings
+	 * @var string $user
+	 */
+	private $user;
+	/**
+	 * Save password for later use from settings
+	 * @var string $pass
+	 */
+	private $pass;
+
+	/**
 	 * ocCalendarConnector constructor.
 	 *
 	 * @param array  $settings
 	 */
 	public function __construct($settings=array()) {
 		parent::__construct($settings);
+		$this->user = isset($settings['userName'])?$settings['userName']:'';
+		$this->pass = isset($settings['password'])?$settings['password']:'';
 	}
+
+	/**
+	 * Overwrite this class of http client because authentification and url settings didn't match
+	 *
+	 * @param RequestInterface $request
+	 *
+	 * @return ResponseInterface
+	 * @throws ClientException
+	 */
+	protected function doRequest(RequestInterface $request) {
+
+		$settings = $this->createCurlSettingsArray($request);
+		//don't know why but this fixes url error from HTTP/Client in SabreDav
+		$ch = curl_init($this->baseUri);
+
+		curl_setopt_array($ch, $settings);
+		//we have tu re-set the authentification parameters
+		curl_setopt($ch, CURLOPT_USERPWD, $this->user.':'.$this->pass);
+		//execute statement
+		$response = $this->curlExec($ch);
+
+		$response = $this->parseCurlResult($response, $ch);
+
+		if ($response['status'] === self::STATUS_CURLERROR) {
+			throw new ClientException($response['curl_errmsg'], $response['curl_errno']);
+		}
+
+		return $response['response'];
+
+	}
+
 
 	/**
 	 * Reads all calendars from a calDAV URL
