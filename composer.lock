@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "66cfe42ac72076652d1aebf9aa72dc3b",
-    "content-hash": "2a0a2f1f201ef3e2895c8341c5876ec5",
+    "hash": "a3aad20f0ed35846f9df5555ce795ee6",
+    "content-hash": "33b7343f780f966c01ab026723e64510",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1263,6 +1263,49 @@
                 "framework"
             ],
             "time": "2016-02-28 21:33:29"
+        },
+        {
+            "name": "thecsea/simple-caldav-client",
+            "version": "v0.1.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thecsea/simpleCalDAV.git",
+                "reference": "b8f62de8f639da87fc72057b241d7edb0c6988bf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thecsea/simpleCalDAV/zipball/b8f62de8f639da87fc72057b241d7edb0c6988bf",
+                "reference": "b8f62de8f639da87fc72057b241d7edb0c6988bf",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "it\\thecsea\\simple_caldav_client\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "claudio cardinale",
+                    "email": "cardi@thecsea.it",
+                    "homepage": "http://thecsea.it"
+                }
+            ],
+            "description": "A simple and complete php caldav client",
+            "homepage": "http://www.thecsea.it",
+            "keywords": [
+                "CalDAV",
+                "Simple",
+                "client"
+            ],
+            "time": "2015-12-02 19:10:12"
         },
         {
             "name": "twig/twig",
