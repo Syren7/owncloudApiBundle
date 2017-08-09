@@ -113,8 +113,11 @@ class ocs {
 		$requestResult = curl_exec($ch);
 		//close resource
 		curl_close($ch);
-		//parse and return the xml result
-		$this->parse(simplexml_load_string($requestResult));
+		//check if there was an error -> not parsing will result in an error
+		if($requestResult !== false) {
+			//parse and return the xml result
+			$this->parse(simplexml_load_string($requestResult));
+		}
 		//return myself
 		return $this;
 	}
