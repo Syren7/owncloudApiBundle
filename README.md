@@ -1,6 +1,8 @@
 # owncloudApiBundle
 
-This ownCloud API Bundle allows you to access user, files and calendars of your ownCloud through the provisioning API and SabreDAV.
+This ownCloud API Bundle allows you to access user, groups, shares, files and calendars of your ownCloud. 
+At the moment there are only party of the full features available but I will try to implement every feature.
+If there are any questions, problems or if you would try to participate at the project leave me a comment or send an [email](mailto:konstantin@tuemmler.org)
 
 # Installation
 
