@@ -52,7 +52,7 @@ class OwncloudCalendar {
 		//1.2 if the first sign is still an / than there were three slashes after http: or https:
 		if(substr($url, 0, 1) == "/") $url = substr($url, 1);
 		//2. replace all // to /
-		$url = preg_replace('/([^:])(\/{2,})/', "/", $url);
+		while(strpos($url, "//") !== false) $url = str_replace("//", "/", $url);
 		//3. create url
 		return $proto.$url;
 	}
