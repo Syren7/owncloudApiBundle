@@ -12,7 +12,7 @@
         "dav"
     ],
     "homepage": "http://tuemmler.org",
-    "license": "GPL2",
+    "license": "GPL-2.0-or-later",
     "authors": [
         {
             "name": "Konstantin Tümmler",
