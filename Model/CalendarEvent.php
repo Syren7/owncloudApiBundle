@@ -19,6 +19,10 @@ class CalendarEvent {
 	 */
 	private $fields = array();
 	/**
+	 * @var bool
+	 */
+	private $isAllDay = false;
+	/**
 	 * CalendarEvent constructor.
 	 *
 	 * @param VObject\Component\VEvent $event
@@ -30,6 +34,15 @@ class CalendarEvent {
 		$this->eTag = $calETag;
 		//set head information
 		$this->fields = $this->parseFields($event->children());
+		//set all day event
+		try {
+			//the problem here is, that we do not really can determine if this is an allDay event or not
+			//so after parsing the fields set the all day property so changes on the date do not affect the following expression
+			$this->isAllDay = $this->getStart()->format('H:i:s') == '00:00:00' && $this->getEnd()->format('H:i:s') == '00:00:00';
+		}
+		catch (CalendarEventException $e) {
+			//do nothing isAllDay is false per default
+		}
 	}
 	/**
 	 * @return string
@@ -61,22 +74,27 @@ class CalendarEvent {
 		$return = [];
 		//go through every child of VEVENT
 		foreach($children as $child) {
-			//there should always be a name and value attribute
-			/** @var Property $child*/
-			//switch case for special types like TimeStamps
-			switch($child->name) {
-				case 'DTSTART':
-				case 'DTEND':
-				case 'CREATED':
-				case 'DTSTAMP':
-				case 'LAST-MODIFIED':
+			//only add if type is type of property
+			//ToDo: Handle vAlarm children
+			if($child instanceof Property) {
+				//there should always be a name and value attribute
+				/** @var Property $child*/
+				//switch case for special types like TimeStamps
+				switch($child->name) {
+					case 'DTSTART':
+					case 'DTEND':
+					case 'CREATED':
+					case 'DTSTAMP':
+					case 'LAST-MODIFIED':
 						$value = new \DateTime($child->getValue());
-					break;
-				default:
-					$value = $child->getValue();
+						break;
+					default:
+						$value = $child->getValue();
+				}
+
+				$return[$child->name] = $value;
 			}
 
-			$return[$child->name] = $value;
 		}
 		//return the array
 		return $return;
@@ -128,9 +146,8 @@ class CalendarEvent {
 	}
 	/**
 	 * @return bool
-	 * @throws CalendarEventException
 	 */
 	public function isAllDay() {
-		return $this->getStart()->format('H:i:s') == '00:00:00' && $this->getEnd()->format('H:i:s') == '00:00:00';
+		return $this->isAllDay;
 	}
 }

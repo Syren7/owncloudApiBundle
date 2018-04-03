@@ -26,10 +26,13 @@ class CalDavClient {
 	 * @var SimpleCalDAVClient $client
 	 */
 	private $client;
+
 	/**
 	 * CalDavClient constructor.
 	 *
 	 * @param array $settings
+	 *
+	 * @throws CalDAVException
 	 */
 	public function __construct($settings=array()) {
 		//ToDo: check settings for required keys
@@ -63,7 +66,6 @@ class CalDavClient {
 	 * @param CalDAVCalendar $calendar
 	 *
 	 * @return ArrayCollection
-	 * @throws CalDAVException
 	 */
 	public function getEvents(CalDAVCalendar $calendar) {
 		$entries = new ArrayCollection();

@@ -15,9 +15,11 @@ class OwncloudCalendar {
 	/**
 	 * OwncloudCalendar constructor.
 	 *
-	 * @param	string	$ocHost
-	 * @param	string	$ocUser
-	 * @param	string	$ocPass
+	 * @param    string $ocHost
+	 * @param    string $ocUser
+	 * @param    string $ocPass
+	 *
+	 * @throws \it\thecsea\simple_caldav_client\CalDAVException
 	 */
 	public function __construct($ocHost, $ocUser, $ocPass) {
 		//Create settings array for curl connection
@@ -34,7 +36,7 @@ class OwncloudCalendar {
 		$settings['baseUri'] = $this->fixUrl($settings['baseUri']);
 
 		//create required connection objects
-		$this->cal = new CalDavClient($settings);
+		$this->client = new CalDavClient($settings);
 	}
 
 
@@ -57,17 +59,27 @@ class OwncloudCalendar {
 		return $proto.$url;
 	}
 
-
+	/**
+	 * @param CalDAVCalendar $calendar
+	 *
+	 * @return \Doctrine\Common\Collections\ArrayCollection
+	 */
 	public function getEvents(CalDAVCalendar $calendar) {
-		return $this->cal->getEvents($calendar);
+		return $this->client->getEvents($calendar);
 	}
 
+	/**
+	 *
+	 */
 	public function createEvent() {
 		//ToDo: This feature is currently missing
 		//return $this->cal->createEvent($cal, $text);
 	}
 
+	/**
+	 * @return \Doctrine\Common\Collections\ArrayCollection
+	 */
 	public function getCalendars() {
-		return $this->cal->getCalendars();
+		return $this->client->getCalendars();
 	}
 }
